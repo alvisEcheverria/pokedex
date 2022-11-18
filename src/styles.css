@@ -68,7 +68,7 @@ body{
     padding-right: 1rem;
 }
 
-.pokemon-are-container{
+.pokemons-area-container{
     height: 100%;
     background: rgb(249,132,74);
     background: linear-gradient(110deg,
@@ -213,21 +213,32 @@ body{
     position: relative;
     box-shadow:  0px 0px 8px 3px rgba(0,0,0,0.71);
     margin-top: 2rem;
+    transform: rotateZ(0deg);
+    transition: 1.3s;
 }
 
 .pokeball-btn::after{
     content: '';
-    background: rgb(0,0,0);
-    background: radial-gradient(circle, 
-    rgba(0,0,0,1) 40%, 
-    rgba(248, 249, 250,1) 6%);
+    background: whitesmoke;
     width: 5rem;
     height: 5rem;
     border-radius: 50%;
-    border: solid 10px black;
+    border: solid 1rem black;
     position: absolute;
     right: 3.5rem;
     bottom: 3.5rem;
+}
+
+.pokeball-btn:hover{
+    background: linear-gradient(180deg, 
+    rgba(255,255,255,1) 45%, 
+    rgba(0,0,0,1) 45%, 
+    rgba(0,0,0,1) 50%, 
+    rgba(0,0,0,1) 55%, 
+    rgba(196, 40, 53,1) 55%);
+    
+    transform: rotateZ(180deg);
+    transition: 1.3s;
 }
 
 .evolutions-container{
@@ -360,7 +371,31 @@ body{
     height: 41rem;
 }
 
+@media (max-width: 80rem){
+    
+    /*
+    .cards-container{
+        width: 25%;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+    }*/
+}
+
+@media (max-width: 63rem){
+    
+    /*.cards-container{
+        width: 33.333%;
+    }*/
+
+}
+
 @media (max-width: 43rem) {
+
+    
+    /*.cards-container{
+    width: 100%;
+    }*/
 
     .type-color{
         padding-left: 30%;
@@ -644,50 +679,88 @@ body{
 }
 
 .items-cards-container{
-    width: 100%;
+    width: 90%;
     display: flex;
+    justify-content: space-evenly;
     flex-wrap: wrap;
-    
-}
-
-.cards-container{
-    width: 25%;
-    display: flex;
-    justify-content: center;
-    padding: 1rem;
+    list-style: none;
+    margin: auto;
+    gap: 6rem;
 }
 
 .cards{
-    background-color: black;
+    background-repeat: no-repeat;
     border-radius: 1rem;
-    width: 20rem;
+    width: 22rem;
     height: 30rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     box-shadow:  0px 0px 8px 3px rgba(0,0,0,0.71);
+    border: solid 1px black;
+}
+
+.card_back{
+    border-radius: 1rem;
+    width: 22rem;
+    height: 30rem;
+    box-shadow:  0px 0px 8px 3px rgba(0,0,0,0.71);
     cursor: pointer;
 }
 
 .img-card-container{
-    width: 18rem;
-    height: 23.5rem ;
+    width: 20rem;
+    height: 26rem ;
     display: flex;
-    justify-content: center;
-    align-items: start;
+    flex-direction: column;
+    align-items: center;
     border-radius: 0 0 0.5rem 0.5rem;
+    cursor: pointer;
 }
 
 .img-pokemon-card{
-    width: 15rem;
+    width: 17rem;
     filter: drop-shadow(5px 5px 5px rgb(0,0,0));
 }
 
-.name-pokemon-card{
-    width: 18rem;
-    padding: 1rem;
-    margin: 1rem 0 0.2rem 0 ;
+.name-sym-content{
+    width: 22rem;
     border-radius: 0.5rem 0.5rem 0 0;
+    font-size: 1rem;
+    display: flex;
+}
+
+.name-descrip{
+    width: 55%;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    border-radius: 2rem 3rem 8rem 0;
+    text-transform: capitalize;
+    font-size: 1.8rem;
+    padding-left: 1rem;
+}
+
+.num-sym{
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: whitesmoke;
+    font-size: 2.4rem;
+    font-weight: 900;
+    font-family: 'Outfit', sans-serif;
+}
+
+.n-of-number-card{
+    font-size: 1rem;
+    font-weight: 400;
+    padding-left: .5rem;
+}
+
+.type-symbol{
+    width: 3rem;
+    cursor: pointer;
 }
 
 .pokedex-logo-container{
@@ -919,9 +992,12 @@ body{
     justify-content: center;
     margin-bottom: 5rem;
     color: whitesmoke;
+    text-align: center;
 }
 
 .name-trainer{
     color: rgba(196, 40, 53,1);
     text-transform: capitalize;
 }
+
+/*****/

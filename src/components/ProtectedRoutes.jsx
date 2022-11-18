@@ -7,7 +7,7 @@ const ProtectedRoutes = () => {
 		// Importa es que valide si el usuario está loggeado o no
     const userName = useSelector(state => state.currentUserName)
 
-    if(userName){
+    if(true){
         return <Outlet />
     } else { 
         return <Navigate to='/' />

@@ -14,7 +14,7 @@ const InputSearchPerType = ({setPokemons, setPage, setIndexButton, setTotalButto
 
     const searchPerType = (typeUrl)=>{   
 
-        if(typeUrl === 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=905'){
+        if(typeUrl === 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=11000'){
             axios.get(typeUrl)
                 .then(res => setPokemons(res.data.results))
                 setPage(1)
@@ -39,7 +39,7 @@ const InputSearchPerType = ({setPokemons, setPage, setIndexButton, setTotalButto
         <div className='select-pokemon-container'>
              <select className='select-pokemon' onChange={e => searchPerType(e.target.value)}>
                 <option className='option-select-default' value="">Select a type of pokemon </option>
-                <option className='option-select' value={'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=905'}> All</option>
+                <option className='option-select' value={'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=11000'}> All</option>
                 {
                      types.map(type =>(
                         <option className='option-select' value={type.url} key={type.url}>

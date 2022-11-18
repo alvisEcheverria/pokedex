@@ -8,120 +8,154 @@ const PokemonEvolutions = ({setBioDefault}) => {
     const navigate = useNavigate()
 
     const [pokemonBase, setPokemonBase] = useState({})
+        const [pokemonBaseId, setPokemonBaseId] = useState()
+
         const [pokemonEvolutionOne, setPokemonEvolutionOne] = useState({})
-            const [pokemonEvolutionTwo, setPokemonEvolutionTwo] = useState({})
+            const [pokemonEvolutionOneId, setPokemonEvolutionOneId] = useState()
+
+                const [pokemonEvolutionTwo, setPokemonEvolutionTwo] = useState({})
+                    const [pokemonEvolutionTwoId, setPokemonEvolutionTwoId] = useState()
 
         const [speciesPokemon, setSpeciesPokemon] = useState({})
             const [evolutionsChain, setEvolutionsChain] = useState({})
-            console.log(pokemonEvolutionOne)
-
-    const evolutionNamesPerPokemon =    {
-                                            pokemonBase: evolutionsChain.species?.name, 
-                                            pokemonEvolutionOne: evolutionsChain.evolves_to?.[0]?.species.name ,
-                                            pokemonEvolutionTwo: evolutionsChain.evolves_to?.[0]?.evolves_to[0]?.species.name
-                                        }
 
     useEffect(()=> {
-
-        axios.get(`https://pokeapi.co/api/v2/pokemon-species/${id}/`)
-            .then(res => setSpeciesPokemon(res.data))
-
-    }, [id])
+        if(+id >= 1 && +id <= 905 || +id >= 10001 && +id <= 10249){
+            axios.get(`https://pokeapi.co/api/v2/pokemon-species/${id}/`)
+                .then(res => setSpeciesPokemon(res.data))
+        }
+    }, [id])      
 
     useEffect(() =>{
 
-        axios.get(speciesPokemon.evolution_chain?.url)
+        if(speciesPokemon.evolution_chain?.url){
+           axios.get(speciesPokemon.evolution_chain?.url)
             .then(res => setEvolutionsChain(res.data.chain))
-                .catch(err => console.log(err.response))
-                    
+        }
+
     }, [speciesPokemon])
 
     useEffect(()=> {
-        
-        if(evolutionNamesPerPokemon.pokemonBase){
-            axios.get(`https://pokeapi.co/api/v2/pokemon/${evolutionNamesPerPokemon.pokemonBase}/`)
+
+        if(evolutionsChain.species?.url){
+            axios.get(evolutionsChain.species?.url)
+                .then(res => setPokemonBaseId(res.data.id))
+        }
+        if(evolutionsChain.evolves_to?.[0]?.species.url){
+            axios.get(evolutionsChain.evolves_to?.[0]?.species.url)
+                .then(res => setPokemonEvolutionOneId(res.data.id))
+        }
+
+        if(evolutionsChain.evolves_to?.[0]?.evolves_to[0]?.species.url){
+            axios.get(evolutionsChain.evolves_to?.[0]?.evolves_to[0]?.species.url)
+                .then(res => setPokemonEvolutionTwoId(res.data.id))
+        }
+
+    }, [evolutionsChain])
+
+    useEffect(()=> {
+
+            if(pokemonBaseId){
+                axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonBaseId}/`)
                 .then(res => setPokemonBase(res.data))
-                    .catch(err => console.log(err.response))
-        }
+            }
+            
+            if(pokemonEvolutionOneId){
+                axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonEvolutionOneId}/`)
+                    .then(res => setPokemonEvolutionOne(res.data))   
+            }
+            
+            if(pokemonEvolutionTwoId){
+                 axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonEvolutionTwoId}/`)
+                    .then(res => setPokemonEvolutionTwo(res.data))
+            }
         
-        if(evolutionNamesPerPokemon.pokemonEvolutionOne){
-            axios.get(`https://pokeapi.co/api/v2/pokemon/${evolutionNamesPerPokemon.pokemonEvolutionOne}/`)
-                .then(res => setPokemonEvolutionOne(res.data)) 
-                    .catch(err => console.log(err.response))
-        }
-        
-        if(evolutionNamesPerPokemon.pokemonEvolutionTwo){
-            axios.get(`https://pokeapi.co/api/v2/pokemon/${evolutionNamesPerPokemon.pokemonEvolutionTwo}/`)
-                .then(res => setPokemonEvolutionTwo(res.data)) 
-                    .catch(err => console.log(err.response))
-        }
-       
-    }, [evolutionNamesPerPokemon.pokemonBase, 
-            evolutionNamesPerPokemon.pokemonEvolutionOne, 
-                evolutionNamesPerPokemon.pokemonEvolutionTwo])
+    }, [pokemonBaseId, pokemonEvolutionOneId, pokemonEvolutionTwoId ])
 
     return (
             
             <ul className='evolutions-container'>
                 <div className='pokemon-base-container'>
                     {  
-                       +id >= 899 && evolutionsChain.species?.name === 'calyrex'?
-                            null
-                        :
+                       speciesPokemon.evolution_chain?.url&&
                         <>
                             <div className='name-evolution-pokemon-container'>
                                 <li className='n-of-number-evolutions'>N°</li>
                                 <li className='pokemon-evolution-id'>{pokemonBase.id}</li>
-                                <li className='name-pokemon-evolution'>{evolutionNamesPerPokemon.pokemonBase}</li>
+                                <li className='name-pokemon-evolution'>{pokemonBase.species?.name}</li>
                             </div>
                             <img onClick={()=>  navigate(`/pokemon/${pokemonBase.id}`,
                                                 setBioDefault(true))} className='evolutions-pokemon-png' 
-                                                src={pokemonBase.sprites?.other.home.front_default? 
-                                                        pokemonBase.sprites?.other.home.front_default 
-                                                        : 
-                                                        pokemonEvolutionTwo.sprites?.other['official-artwork'].front_default} 
+                                                src={   pokemonBase.sprites?.other.home.front_default?
+                                                        pokemonBase.sprites?.other.home.front_default
+                                                        :
+                                                        pokemonBase.sprites?.other['official-artwork'].front_default?
+                                                        pokemonBase.sprites?.other['official-artwork'].front_default
+                                                        :
+                                                        pokemonBase.sprites?.versions['generation-vii']['ultra-sun-ultra-moon'].front_default?
+                                                        pokemonBase.sprites?.versions['generation-vii']['ultra-sun-ultra-moon'].front_default
+                                                        :
+                                                        pokemonBase.sprites?.versions['generation-viii'].icons.front_default
+                                                        
+                                                    }
                                                 alt="pokemon"
                             />
                         </>
                     }
                 </div>
                  <div className='pokemon-evolution-one-container'>
-                    {
-                        evolutionNamesPerPokemon.pokemonEvolutionOne?
+                    {   speciesPokemon.evolution_chain?.url&&
+                        evolutionsChain.evolves_to?.[0]?.species.url&&
                         <>  
                             <div className='name-evolution-pokemon-container'>
-                                <li class='n-of-number-evolutions'>N°</li>
-                                <li className='pokemon-evolution-id'>{pokemonEvolutionOne.id}</li>
-                                <li className='name-pokemon-evolution'>{evolutionNamesPerPokemon.pokemonEvolutionOne}</li>
+                                <li className='n-of-number-evolutions'>N°</li>
+                                <li className='pokemon-evolution-id'>{pokemonEvolutionOne?.id}</li>
+                                <li className='name-pokemon-evolution'>{pokemonEvolutionOne.species?.name}</li>
                             </div>
                             <img    onClick={()=> navigate(`/pokemon/${pokemonEvolutionOne.id}`,
                                     setBioDefault(true))} className='evolutions-pokemon-png' 
-                                    src={pokemonEvolutionOne.sprites?.other.home.front_default} 
+                                    src={   pokemonEvolutionOne.sprites?.other.home.front_default?
+                                            pokemonEvolutionOne.sprites?.other.home.front_default
+                                            :
+                                            pokemonEvolutionOne.sprites?.other['official-artwork'].front_default?
+                                            pokemonEvolutionOne.sprites?.other['official-artwork'].front_default
+                                            :
+                                            pokemonEvolutionOne.sprites?.versions['generation-vii']['ultra-sun-ultra-moon'].front_default?
+                                            pokemonEvolutionOne.sprites?.versions['generation-vii']['ultra-sun-ultra-moon'].front_default
+                                            :
+                                            pokemonEvolutionOne.sprites?.versions['generation-viii'].icons.front_default
+                                        } 
                                     alt="pokemon" 
                             />
                         </>
-                        :
-                        null
                     }
                 </div> 
                 <div className='pokemon-evolution-two-container'>
-                    {
-                        evolutionNamesPerPokemon.pokemonEvolutionTwo?
+                    {   speciesPokemon.evolution_chain?.url&&
+                        evolutionsChain.evolves_to?.[0]?.evolves_to[0]?.species.url&&
                         <>  
                             <div className='name-evolution-pokemon-container'>
-                                <li class='n-of-number-evolutions'>N°</li>
+                                <li className='n-of-number-evolutions'>N°</li>
                                 <li className='pokemon-evolution-id'>{pokemonEvolutionTwo.id}</li>
-                                <li className='name-pokemon-evolution'>{evolutionNamesPerPokemon.pokemonEvolutionTwo}</li>
+                                <li className='name-pokemon-evolution'>{pokemonEvolutionTwo.species?.name}</li>
                             </div>
                             <img onClick={()=>  navigate(`/pokemon/${pokemonEvolutionTwo.id}`,
                                                 setBioDefault(true))} 
                                                 className='evolutions-pokemon-png' 
-                                                src={pokemonEvolutionTwo.sprites?.other.home/*['official-artwork']*/.front_default} 
+                                                src={   pokemonEvolutionTwo.sprites?.other.home.front_default?
+                                                        pokemonEvolutionTwo.sprites?.other.home.front_default
+                                                        :
+                                                        pokemonEvolutionTwo.sprites?.other['official-artwork'].front_default?
+                                                        pokemonEvolutionTwo.sprites?.other['official-artwork'].front_default
+                                                        :
+                                                        pokemonEvolutionTwo.sprites?.versions['generation-vii']['ultra-sun-ultra-moon'].front_default?
+                                                        pokemonEvolutionTwo.sprites?.versions['generation-vii']['ultra-sun-ultra-moon'].front_default
+                                                        :
+                                                        pokemonEvolutionTwo.sprites?.versions['generation-viii'].icons.front_default
+                                                    } 
                                                 alt="pokemon" 
                             />   
                         </>
-                        :
-                        null
                     }
                 </div>
             </ul>

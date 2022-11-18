@@ -2,10 +2,10 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import InputSearch from './InputSearch';
 import InputSearchPerType from './InputSearchPerType';
 import PokemonCard from './PokemonCard';
+import soundClick from '../assets/sounds-effects/sound-click.mp3'
 
 const Pokemon = () => {
 
@@ -14,13 +14,11 @@ const Pokemon = () => {
     const [pokemons, setPokemons] = useState([])
 
     useEffect(()=>{
-        
-        axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=905`)
-            .then(res => setPokemons(res.data.results))
+
+            axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=10249`)
+                .then(res => setPokemons(res.data.results))
 
     }, [])
-
-    
 
     const [page, setPage] = useState(1);
         const unitsPerPage = 20;
@@ -57,7 +55,8 @@ const Pokemon = () => {
     const [displayPokeball, setDisplayPokeball] = useState(false)
 
     return (
-        <div className='pokemon-are-container'>
+        <div className='pokemons-area-container'>
+            <audio src={soundClick} autoPlay/>
             <div className='pokedex-logo-container'>
                 <img className='pokedex-logo' src="./img/pokedex-logo.png" alt="pokedex-logo" />
                 <img    className='pokeball-mid' 
@@ -99,13 +98,15 @@ const Pokemon = () => {
                 <h1>Welcome <span className='name-trainer'>{userName}</span>, get ready for a great adventure.</h1>
             </div>
             
-            <div className='items-cards-container' >
+            <ul className='items-cards-container' >
             {
                 pokemonList.map(pokemon =>(
-                    <PokemonCard url={pokemon.url} key={pokemon.url}/>
+                    <li className='cards-container' key={pokemon.url}>
+                        <PokemonCard url={pokemon.url}/>
+                    </li>
                 ))
             }
-            </div>
+            </ul>
 
             <div className='btns-pagination-container'>
                 <div className='pass-btns-container'>

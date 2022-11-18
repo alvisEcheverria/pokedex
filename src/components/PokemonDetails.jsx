@@ -16,11 +16,14 @@ const PokemonDetails = () => {
 
     useEffect(() => {
 
-        axios.get(`https://pokeapi.co/api/v2/pokemon/${id}/`)
-            .then(res => setPokemon(res.data))
+        if(+id >= 1  && +id <= 905 || +id >= 10001 && +id <= 10249){
+            
+            axios.get(`https://pokeapi.co/api/v2/pokemon/${id}/`)
+                .then(res => setPokemon(res.data))
 
-        axios.get(`https://pokeapi.co/api/v2/pokemon-species/${id}/`)
-            .then(res => setSpeciesPokemon(res.data))
+            axios.get(`https://pokeapi.co/api/v2/pokemon-species/${id}/`)
+                .then(res => setSpeciesPokemon(res.data))
+        }
 
     }, [id])
 
@@ -173,11 +176,19 @@ const PokemonDetails = () => {
                     </div>  
                         <div className='container-pokemon-png'> 
                             <div className='pokemon-png-padding'>
-                                <img onClick={playCriePokemon} className='pokemon-png'  src={pokemon.sprites?.other.home.front_default? 
-                                                        pokemon.sprites?.other.home.front_default 
-                                                        : 
-                                                        pokemon.sprites?.other['official-artwork'].front_default}  
-                                                        alt="pokemon" />
+                                <img onClick={playCriePokemon} className='pokemon-png'  
+                                src={   pokemon.sprites?.other.home.front_default?
+                                        pokemon.sprites?.other.home.front_default
+                                        :
+                                        pokemon.sprites?.other['official-artwork'].front_default?
+                                        pokemon.sprites?.other['official-artwork'].front_default
+                                        :
+                                        pokemon.sprites?.versions['generation-vii']['ultra-sun-ultra-moon'].front_default?
+                                        pokemon.sprites?.versions['generation-vii']['ultra-sun-ultra-moon'].front_default
+                                        :
+                                        pokemon.sprites?.versions['generation-viii'].icons.front_default 
+                                    }
+                                    alt="pokemon" />
                             </div> 
                         </div>   
                         {
@@ -295,7 +306,7 @@ const PokemonDetails = () => {
                             <option value="">Select Moves</option>
                            { 
                                 pokemon.moves.map(moves => (
-                                    <option key={moves.id} value={moves.move.url}>{moves.move.name}</option>
+                                    <option key={moves.move.url} value={moves.move.url}>{moves.move.name}</option>
                                 ))   
                             }
                         </select>

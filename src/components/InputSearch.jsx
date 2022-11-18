@@ -15,7 +15,7 @@ const InputSearch = ({setPokemons, setDisplayPokeball}) => {
     }
 
     useEffect(()=>{
-        axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=905`)
+        axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=10249`)
             .then(res => setPokemonsToSearch(res.data.results))
     }, [])
 
