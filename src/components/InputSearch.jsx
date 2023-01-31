@@ -30,16 +30,14 @@ const InputSearch = ({setPokemons, setDisplayPokeball}) => {
     }
 
     return (
-        <div>
+        <div className='form-container'>
             <form className='form-search-container' onSubmit={searchPokemon}>
                 <input className='input-search'
-                    type="text"
-                    placeholder='Search Pokemon' 
-                    value={pokemonInput}
-                    onChange={e => setPokemonInput(e.target.value)}
+                        type="text"
+                        placeholder='Search Pokemon' 
+                        value={pokemonInput}
+                        onChange={e => setPokemonInput(e.target.value)}
                 />
-            </form>
-            <div className='search-pokemon-container'>
                 {
                     pokemonInput !== '' &&
                     <ul className='search-pokemon-list-container'>
@@ -48,16 +46,14 @@ const InputSearch = ({setPokemons, setDisplayPokeball}) => {
                                 <li className='pokemon-list-search' 
                                     key={pokemon.url} onClick={()=> searchPokemon(pokemon)}
                                 >
-                                     {pokemon.name}
+                                        {pokemon.name}
                                 </li>
                             )) 
                         }
                     </ul>
                 }
-                
-            </div>
+            </form>   
         </div>
-                
     );
 };
 

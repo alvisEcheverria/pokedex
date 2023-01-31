@@ -5,7 +5,8 @@ import { useSelector } from 'react-redux';
 import InputSearch from './InputSearch';
 import InputSearchPerType from './InputSearchPerType';
 import PokemonCard from './PokemonCard';
-import soundClick from '../assets/sounds-effects/sound-click.mp3'
+import soundClick from '../assets/sounds-effects/sound-click.mp3';
+import MiniGameList from './MiniGameList';
 
 const Pokemon = () => {
 
@@ -52,7 +53,16 @@ const Pokemon = () => {
         setTotalButton(totalButton - 10)
     }
     
-    const [displayPokeball, setDisplayPokeball] = useState(false)
+    const [displayPokeball, setDisplayPokeball] = useState(false);
+
+    const [ game, setGame ] = useState(false);
+
+    const [selected, setSelected] = useState('')
+
+    const numberSelected = (number)=>{
+        setPage(number);
+        setSelected('number-selected');
+    }
 
     return (
         <div className='pokemons-area-container'>
@@ -68,12 +78,13 @@ const Pokemon = () => {
             {
             displayPokeball&&
                 <div className='search-container'>
-
-                    <div className='inputs-container'>
+                    <div className='item-a'>
                         <InputSearch setDisplayPokeball={setDisplayPokeball} setPokemons={setPokemons}/>
+                        <div className='btn-minigame-container'>
+                            <button onClick={()=> setGame(!game)}>Mini Game</button>
+                        </div>
                     </div> 
-                    
-                    <div className='inputs-container'>
+                    <div className='item-b'>
                         <InputSearchPerType
                             setDisplayPokeball={setDisplayPokeball}
                             setPokemons={setPokemons}
@@ -82,10 +93,8 @@ const Pokemon = () => {
                             setTotalButton={setTotalButton}
                         />
                     </div>
-                    
                 </div>
             }
-
             <div className='pokeball-mid-bottom-container'>
                 <img    className='pokeball-mid' 
                         onClick={()=> setDisplayPokeball(!displayPokeball)} 
@@ -94,22 +103,34 @@ const Pokemon = () => {
                 />
             </div>
            
-            <div className='name-trainer-container'>
-                <h1>Welcome <span className='name-trainer'>{userName}</span>, get ready for a great adventure.</h1>
-            </div>
-            
-            <ul className='items-cards-container' >
             {
-                pokemonList.map(pokemon =>(
-                    <li className='cards-container' key={pokemon.url}>
-                        <PokemonCard url={pokemon.url}/>
-                    </li>
-                ))
+                game?
+                    <div className='name-trainer-container'>
+                        <h1>Hey <span className='name-trainer'>{userName}</span>, gotta catch 'em all!</h1>
+                    </div>
+                :
+                    <div className='name-trainer-container'>
+                        <h1>Welcome <span className='name-trainer'>{userName}</span>, get ready for a great adventure.</h1>
+                    </div>
             }
-            </ul>
-
-            <div className='btns-pagination-container'>
-                <div className='pass-btns-container'>
+            
+            {
+                game?
+                    <MiniGameList/>
+            :
+                <ul className='items-cards-container'>
+                        {
+                            pokemonList.map(pokemon =>(
+                                <li className='cards-container' key={pokemon.url}>
+                                    <PokemonCard url={pokemon.url}/>
+                                </li>
+                            ))
+                        }
+                </ul>
+            }
+            {
+                !game &&
+                <div className='btns-pagination-container'>
                     <button 
                         className='btn-pass' 
                         onClick={prevButton}
@@ -117,17 +138,12 @@ const Pokemon = () => {
                     >
                         Prev
                     </button>
-                </div>
 
-                <div className='numbers-container'>
                     {
                         numbers.map(number => (
-                            <button className='numbers' key={number} onClick={()=> setPage(number)}>{number}</button>
+                            <button className={`numbers ${number === page && selected}`} key={number} onClick={()=> numberSelected(number)}>{number}</button>
                         ))
                     }  
-                </div>   
-
-                <div className='pass-btns-container'>
                     <button 
                         className='btn-pass'
                         onClick={nextButton}
@@ -136,7 +152,7 @@ const Pokemon = () => {
                         Next
                     </button>
                 </div>
-            </div>
+            }
         </div>
     );
 };

@@ -117,7 +117,6 @@ const PokemonDetails = () => {
             const typePokemon = typesPokemon.find(type => type?.type === name)                 
             return typePokemon
         }
-        
     } 
     
     const findTypeOfPokemon = pokemon.types?.map(type => type.type.name);
