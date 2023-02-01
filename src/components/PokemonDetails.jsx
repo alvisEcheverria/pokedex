@@ -173,27 +173,26 @@ const PokemonDetails = () => {
                             <h2 className='number-id'><span className='n-of-number'>N°</span>{pokemon.id}</h2>
                             <h1 className='name-pokemon'>{pokemon.name} </h1>
                     </div>  
-                        <div className='container-pokemon-png'> 
-                            <div className='pokemon-png-padding'>
-                                <img onClick={playCriePokemon} className='pokemon-png'  
-                                src={   pokemon.sprites?.other.home.front_default?
-                                        pokemon.sprites?.other.home.front_default
-                                        :
-                                        pokemon.sprites?.other['official-artwork'].front_default?
-                                        pokemon.sprites?.other['official-artwork'].front_default
-                                        :
-                                        pokemon.sprites?.versions['generation-vii']['ultra-sun-ultra-moon'].front_default?
-                                        pokemon.sprites?.versions['generation-vii']['ultra-sun-ultra-moon'].front_default
-                                        :
-                                        pokemon.sprites?.versions['generation-viii'].icons.front_default 
-                                    }
-                                    alt="pokemon" />
-                            </div> 
-                        </div>   
-                        {
-                            playCrie && 
-                            <audio src={`./sound/pokemonCries/${id}.wav`} autoPlay></audio>
-                        }
+                    <div className='container-pokemon-png'> 
+                        <img onClick={playCriePokemon} className='pokemon-png'  
+                        src={   pokemon.sprites?.other.home.front_default?
+                                pokemon.sprites?.other.home.front_default
+                                :
+                                pokemon.sprites?.other['official-artwork'].front_default?
+                                pokemon.sprites?.other['official-artwork'].front_default
+                                :
+                                pokemon.sprites?.versions['generation-vii']['ultra-sun-ultra-moon'].front_default?
+                                pokemon.sprites?.versions['generation-vii']['ultra-sun-ultra-moon'].front_default
+                                :
+                                pokemon.sprites?.versions['generation-viii'].icons.front_default 
+                            }
+                            alt="pokemon" />
+                            <img src="./img/poke.png" className='white-poke' alt="" />
+                    </div>   
+                    {
+                        playCrie && 
+                        <audio src={`./sound/pokemonCries/${id}.wav`} autoPlay></audio>
+                    }
                     
                     <ul className='type-color-container'>
                         <div className='type-color'>

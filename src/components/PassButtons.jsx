@@ -49,7 +49,6 @@ const PassButtons = () => {
             navigate(`/pokemon/${pokemonNext.id}`) 
         }
     }
-    console.log(id)
 
     return (
         <div>
@@ -73,7 +72,7 @@ const PassButtons = () => {
                             
                             <div className='btn-pass-info-container'>
                                 <p className='n-of-number-pass-button'> 
-                                    N° 
+                                    N°
                                     <span className='btn-info-id'>{id === '1'? '10249' : id === '10001'? '905' : pokemonPrev.id}</span>  
                                 </p>
                                 <p className='btn-name-pokemon'>{id === '1'? 'Enamorus-Therian' : id === '10001'? 'Enamorus-Incarnate' : pokemonPrev.name}</p>
