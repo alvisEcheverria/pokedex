@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
-const InputSearchPerType = ({setPokemons, setPage, setIndexButton, setTotalButton, setDisplayPokeball}) => {
+const InputSearchPerType = ({setPokemons, setPage, setIndexButton, setTotalButton, setDisplayPokeball, setGame}) => {
 
     const [types, setTypes] = useState([]);
 
@@ -96,6 +96,7 @@ const InputSearchPerType = ({setPokemons, setPage, setIndexButton, setTotalButto
                 setIndexButton(1)
                 setTotalButton(10)
                 setDisplayPokeball(false)
+                setGame(false)
         }
         else if(typeUrl === ''){
             null
@@ -107,6 +108,7 @@ const InputSearchPerType = ({setPokemons, setPage, setIndexButton, setTotalButto
                 setIndexButton(1)
                 setTotalButton(10)
                 setDisplayPokeball(false)
+                setGame(false)
         }   
     }
 

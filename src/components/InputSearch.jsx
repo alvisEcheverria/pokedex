@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
-const InputSearch = ({setPokemons, setDisplayPokeball}) => {
+const InputSearch = ({setPokemons, setDisplayPokeball, setGame}) => {
 
     const [pokemonInput, setPokemonInput] = useState('')
         const [pokemonsToSearch, setPokemonsToSearch] = useState([])
@@ -12,6 +12,7 @@ const InputSearch = ({setPokemons, setDisplayPokeball}) => {
         setPokemons(arrayPokemon)
         setPokemonInput('')
         setDisplayPokeball(false)
+        setGame(false)
     }
 
     useEffect(()=>{

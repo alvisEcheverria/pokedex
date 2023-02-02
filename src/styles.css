@@ -35,7 +35,7 @@ body{
 }
 
 .white-poke{
-    height: 14.65vw;
+    width: 14.65vw;
     height: 14.65vw;
     object-fit: contain;
     position: absolute;
@@ -819,6 +819,19 @@ body{
     flex-direction: column;
 }
 
+.bracket-close{
+    width: 50%;
+    margin: auto; 
+    text-align: end; 
+    padding-top: 2rem; 
+    font-size: 2.5rem;
+    color: rgba(196, 40, 53,1);
+}
+
+.bracket-close i{
+    cursor: pointer;
+}
+
 .btn-minigame-container{
     width: 100%;
     height: 50%;
@@ -1064,7 +1077,7 @@ body{
 
 /*****/
 
-@media (max-width: 1024px){
+@media (max-width: 912px){
 
     .items-cards-container{
         width: 90%;
@@ -1090,11 +1103,249 @@ body{
         font-size: 3vw;  
     }
 
+    .header-container{
+        height: 12vw;
+        padding-top: 2rem;
+    }
+
+    .nav-pokemonDetails-container{
+        height: 12vw;
+    }
+
+    .pass-btn{
+        height: 12vw;
+    }
+
+    .pokeball-btn{
+        width: 13vw;
+        height: 13vw;
+    }
+
+    .pokeball-btn::after{
+        width: 5.5vw;
+        height: 5.5vw;
+        border: solid 1.1vw #000;
+        right: 3.5vw;
+        bottom: 3.5vw;
+    }
+
+    .btn-left-right{
+        width: 4vw;
+        height: 4vw;
+        font-size: 1.5vw;
+    }
+
+    .btn-zl-pass-container{
+        margin-left: 2vw;
+    }
+
+    .btn-zr-pass-container{
+        margin-right: 2vw;
+    }
+
+    .btn-name-pokemon{
+        font-size: 2.5vw;
+    }
+
+    .space-bar-btns{
+        height: 6vw;
+    }
+
+    .btn-info-id{
+        font-size: 2vw;
+    }
+
+    .n-of-number-pass-button{
+        font-size: 1.5vw;
+    }
+    
+    .select-bio{
+        width: 27vw;
+        padding: 1.5vw;
+        font-size: 2vw;
+        top: 1.2vw;
+    }
+
+    .text-bio-container{
+        height: 25vw;
+    }
+
+    .text-bio{
+        font-size: 2.5vw;
+    }
+
+    .name-pokemon{
+        font-size: 2.5vw;
+    }
+
+    .number-id{
+        font-size: 2vw;
+    }
+
+    .n-of-number{
+        font-size: 1.5vw;
+    }
+
+    .container-pokemon-png{
+        height: 30vw;
+    }
+
+    .pokemon-png {
+        width: 80%;
+        left: -1.5vw;
+    }
+
+    .white-poke{
+        width: 27vw;
+        height: 27vw;
+        left: 8vw;
+    }
+
+    .type-per-color{
+        width: 10vw;
+        font-size: 2vw;
+    }
+
+    .type-color{
+        padding-right: 15%;
+    }
+
+    .movements{
+        width: 27vw;
+        padding: 1.5vw;
+        font-size: 2vw;
+        top: 1.2vw;
+    }
+
+    .habitat-container{
+        width: 45vw;
+        height: 4vw;
+    }
+
+    .padding-habitat{
+        font-size: 1.4vw;
+    }
+
+    .weight-height{
+        width: 10vw;
+        font-size: 1.4vw;
+    }
+
+    .stat-padding{
+        font-size: 1.6vw;
+    }
+
+    .point-stat-name{
+        font-size: 1.6vw;
+    }
+
+    .left-points-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .evolutions-container{
+        height: 30vw;
+        position: relative;
+        left: -4vw;
+    }
+
+    .evolutions-pokemon-png{
+        width: 15vw;
+    }
+
+    .name-pokemon-evolution{
+        font-size: 2vw;
+    }
+
+    .pokemon-evolution-id{
+        font-size: 1.5vw;
+    }
+
+    .n-of-number-evolutions{
+        font-size: 1.2vw;
+    }
+
+    .types-ability-normal-color{
+        width: 12vw;
+        font-size: 1.5vw;
+    }
+
+    .types-ability-hidden-color{
+        width: 12vw;
+        font-size: 1.5vw;
+    }
+
+    .types-abilities{
+        font-size: 1.5vw;
+    }
+
+    .percentage-power-container{
+        font-size: 2vw;
+    }
+
+    .name-power{
+        font-size: 1.5vw;
+        
+    }
+
+    .text-move-container{
+        height: 25vw;
+    }
+
+    .text-move{
+        font-size: 2.5vw;
+        padding-right: 2vw;
+    }
+
+    .select-moves{
+        width: 27vw;
+        padding: 1.5vw;
+        font-size: 2vw;
+    }
+
+    .card-content{
+        width: 80%;
+        height: 80%;
+        margin-bottom: 25vw;
+    }
+
+    .pokeball-img{
+        width: 15.5vw;
+        height: 15.5vw
+    }
+
+    .card{
+        width: 13vw;
+        height: 13vw
+    }
+
+    .card-img{
+        width: 13vw;
+        height: 13vw
+    }
+
+    .bracket-close{
+        width: 80%;
+    }
 }
 
 @media (max-width: 540px){
     .cards-container{
         width: 50%;
+    }
+
+    .select-bio{
+        width: 30vw;
+    }
+
+    .movements{
+        width: 30vw;
+    }
+
+    .select-moves{
+        width: 30vw;
     }
 }
 
@@ -1414,5 +1665,30 @@ body{
     .type-color-moves-container{
         position: relative;
         top: 10vh;
+    }
+
+    .card-content{
+        width: 80%;
+        height: 80%;
+        margin-bottom: 20vw;
+    }
+
+    .pokeball-img{
+        width: 15.5vw;
+        height: 15.5vw
+    }
+
+    .card{
+        width: 13vw;
+        height: 13vw
+    }
+
+    .card-img{
+        width: 13vw;
+        height: 13vw
+    }
+
+    .bracket-close{
+        width: 80%;
     }
 }

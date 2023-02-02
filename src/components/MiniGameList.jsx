@@ -9,9 +9,8 @@ import butterfree from '../assets/sounds-effects/card-game/butterfree.wav';
 import pidgeot from '../assets/sounds-effects/card-game/pidgeot.wav';
 import primeape from '../assets/sounds-effects/card-game/primeape.wav';
 import grimer from '../assets/sounds-effects/card-game/grimer.wav';
-import ReactCardFlip from 'react-card-flip';
 
-const MiniGameList = () => {
+const MiniGameList = ({setGame}) => {
 
     let cards = [ 
                     {   
@@ -165,26 +164,35 @@ const MiniGameList = () => {
         }, 1000);
      };
 
+     const closeMiniGame = () =>{
+        setGame(false)
+     }
+
     return (
-        <ul className='card-content'>
-            <audio src={soundPokemon} autoPlay/>
-        {
-            cardList?.map((card, index) => (
-                <li className='card' 
-                    style={{background: `${card.color}`}}
-                    key={card.id}
-                    onClick={()=> selectedCard(index)}
-                >
-                    {
-                        card.status !== 'down' ?
-                            <img className={`card-img ${card.status}`}  src={card.img} alt="cards" />
-                        :
-                            <img className='pokeball-img' src='./img/card_game/pokeball.png' alt="pokeball" />
-                    }
-                </li>
-            ))
-        }
-        </ul>
+        <> 
+            <ul className='card-content'>
+                <audio src={soundPokemon} autoPlay/>
+            {
+                cardList?.map((card, index) => (
+                    <li className='card' 
+                        style={{background: `${card.color}`}}
+                        key={card.id}
+                        onClick={()=> selectedCard(index)}
+                    >
+                        {
+                            card.status !== 'down' ?
+                                <img className={`card-img ${card.status}`}  src={card.img} alt="cards" />
+                            :
+                                <img className='pokeball-img' src='./img/card_game/pokeball.png' alt="pokeball" />
+                        }
+                    </li>
+                ))
+            }
+            </ul>
+            <div className='bracket-close'>
+                <i onClick={closeMiniGame} className="fa-solid fa-right-to-bracket"></i>
+            </div>
+        </>
     );
 };
 

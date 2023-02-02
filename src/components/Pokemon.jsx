@@ -64,6 +64,11 @@ const Pokemon = () => {
         setSelected('number-selected');
     }
 
+    const showGame = () =>{
+        setGame(!game) 
+        setDisplayPokeball(false)
+    }
+
     return (
         <div className='pokemons-area-container'>
             <audio src={soundClick} autoPlay/>
@@ -79,9 +84,13 @@ const Pokemon = () => {
             displayPokeball&&
                 <div className='search-container'>
                     <div className='item-a'>
-                        <InputSearch setDisplayPokeball={setDisplayPokeball} setPokemons={setPokemons}/>
+                        <InputSearch 
+                            setDisplayPokeball={setDisplayPokeball} 
+                            setPokemons={setPokemons}
+                            setGame={setGame}
+                        />
                         <div className='btn-minigame-container'>
-                            <button onClick={()=> setGame(!game)}>Mini Game</button>
+                            <button onClick={showGame}>Mini Game</button>
                         </div>
                     </div> 
                     <div className='item-b'>
@@ -91,6 +100,7 @@ const Pokemon = () => {
                             setPage={setPage}
                             setIndexButton={setIndexButton}
                             setTotalButton={setTotalButton}
+                            setGame={setGame}
                         />
                     </div>
                 </div>
@@ -116,7 +126,7 @@ const Pokemon = () => {
             
             {
                 game?
-                    <MiniGameList/>
+                    <MiniGameList setGame={setGame}/>
             :
                 <ul className='items-cards-container'>
                         {
