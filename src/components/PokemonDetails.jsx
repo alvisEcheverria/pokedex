@@ -59,32 +59,32 @@ const PokemonDetails = () => {
     const statsPokemon =    [
                                 {   
                                     id: 0,
-                                    stat: +`${pokemon.stats?.[0].base_stat}` / 2.3,
+                                    stat: +`${pokemon.stats?.[0].base_stat}` / 6.9,
                                     normalStat: `${pokemon.stats?.[0].base_stat}`
                                 },
                                 {   
                                     id: 1,
-                                    stat: +`${pokemon.stats?.[1].base_stat}` / 2.3, 
+                                    stat: +`${pokemon.stats?.[1].base_stat}` / 6.9, 
                                     normalStat: `${pokemon.stats?.[1].base_stat}`
                                 },
                                 {   
                                     id: 2,
-                                    stat: +`${pokemon.stats?.[2].base_stat}` / 2.3,
+                                    stat: +`${pokemon.stats?.[2].base_stat}` / 6.9,
                                     normalStat: `${pokemon.stats?.[2].base_stat}`
                                 },
                                 {   
                                     id: 3,
-                                    stat: +`${pokemon.stats?.[3].base_stat}` / 2.3,
+                                    stat: +`${pokemon.stats?.[3].base_stat}` / 6.9,
                                     normalStat: `${pokemon.stats?.[3].base_stat}`
                                 },
                                 {   
                                     id: 4,
-                                    stat: +`${pokemon.stats?.[4].base_stat}` / 2.3,
+                                    stat: +`${pokemon.stats?.[4].base_stat}` / 6.9,
                                     normalStat: `${pokemon.stats?.[4].base_stat}`
                                 },
                                 {   
                                     id: 5,
-                                    stat: +`${pokemon.stats?.[5].base_stat}` / 2.3,
+                                    stat: +`${pokemon.stats?.[5].base_stat}` / 6.9,
                                     normalStat: `${pokemon.stats?.[5].base_stat}`
                                 }
                             ]
@@ -118,7 +118,7 @@ const PokemonDetails = () => {
             return typePokemon
         }
     } 
-    
+    console.log(pokemon)
     const findTypeOfPokemon = pokemon.types?.map(type => type.type.name);
     
     const typeFilter1 = findType(findTypeOfPokemon?.[0])
@@ -126,7 +126,7 @@ const PokemonDetails = () => {
 
     const filterTypeMove = findType(movementPokemon.type?.name)
 
-    const powerStat = movementPokemon.power? `${movementPokemon.power / 2}%` : '35%' ;
+    const powerStat = movementPokemon.power? `${movementPokemon.power / 4.8}vw` : '35%' ;
     const movementPokemonTernario =  movementPokemon.power? `${movementPokemon.power}` : 'Unknown';
     const powerMovement = movementPokemon.power? 
         'linear-gradient(240deg, rgba(196, 40, 53,1) 90%, rgba(0,0,0,0) 10%)'
@@ -217,7 +217,9 @@ const PokemonDetails = () => {
                     toggleDetails?
                     (
                     <>  
-                        <div className='cs'>
+                        <div className='habitat-content'>
+                            <p className='weight-height'>{((pokemon.height / 10) * 3.281).toFixed(2)} ft</p>
+                            <p className='weight-height'>{(pokemon.weight / 4.536).toFixed(2)} lb</p>
                             <div className='habitat-container'>
                                     {
                                         speciesPokemon.habitat?.name ? 
@@ -250,7 +252,7 @@ const PokemonDetails = () => {
                                 {
                                     statsPokemon.map(stat => (
                                         <li key={stat.id} className='percentage-point-detail' 
-                                            style={{ width: `${stat.stat}%`}}>
+                                            style={{ width: `${stat.stat}vw`}}>
                                             <span className='stat-padding'>{stat.normalStat}</span> 
                                         </li>
                                     ))
@@ -301,10 +303,10 @@ const PokemonDetails = () => {
                         </div>
                       
                         <select className='select-moves' onChange={e => getDetailsMovements(e.target.value)}>
-                            <option value="">Select Moves</option>
+                            <option className='option-move' value="">Select Moves</option>
                            { 
                                 pokemon.moves.map(moves => (
-                                    <option key={moves.move.url} value={moves.move.url}>{moves.move.name}</option>
+                                    <option className='option-move' key={moves.move.url} value={moves.move.url}>{moves.move.name}</option>
                                 ))   
                             }
                         </select>

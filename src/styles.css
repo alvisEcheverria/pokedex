@@ -18,8 +18,8 @@ body{
 
 .container-pokemon-png{
     width: 100%;
-    height: 20rem;
-    margin: 3rem 0;
+    height: 14.65vw;
+    margin: 1.8vw 0;
     position: relative;
 }
 
@@ -35,8 +35,8 @@ body{
 }
 
 .white-poke{
-    width: 20rem;
-    height: 20rem;
+    height: 14.65vw;
+    height: 14.65vw;
     object-fit: contain;
     position: absolute;
     left: 12vw;
@@ -69,19 +69,19 @@ body{
 }
 
 .name-pokemon{
-    font-size: 2.5rem;
+    font-size: 1.8vw;
     color: whitesmoke;
     padding-right: 35%;
 }
 
 .n-of-number{
-    font-size: 1.2rem;
+    font-size: 0.9vw;
     color: white;
     padding: 0.5rem;
 }
 
 .number-id{
-    font-size: 1.8rem;
+    font-size: 1.5vw;
     color:rgba(196, 40, 53,1);
     padding-right: 1rem;
 }
@@ -108,26 +108,23 @@ body{
 }
 
 .nav-pokemonDetails-container{
-    width: 100%;
-    height: 10rem;
+    width: 100vw;
+    height: 7.3vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
-    top: 0;
-    padding-top: 1rem;
     z-index: 100;
 }
 
 .header-container{
-    height: 10rem;
+    height: 7.3vw;
     display: flex;
     align-items: center;
-    padding-top: 1rem;
+    padding-top: 0.7vw;
 }
 
 .n-of-number-pass-button{
-    font-size: 1.5rem;
+    font-size: 1.2vw;
     color: whitesmoke;
 }
 
@@ -146,7 +143,7 @@ body{
 .pass-btn{
     background-color: rgba(0, 0, 0,0);
     width: 75%;
-    height: 10rem;
+    height: 7.3vw;
     border: none;
     color: whitesmoke;
     cursor: pointer;
@@ -171,12 +168,12 @@ body{
 
 .btn-zl-pass-container{
     width: 10%;
-    margin-left: 2rem;
+    margin-left: 1.5vw;
 }
 
 .btn-zr-pass-container{
     width: 10%;
-    margin-right: 2rem;
+    margin-right: 1.5vw;
 }
 
 .btn-pass-info-container{
@@ -184,7 +181,7 @@ body{
 }
 
 .btn-info-id{
-    font-size: 2rem;
+    font-size: 1.5vw;
     color: rgba(196, 40, 53,1);
     padding-left: 0.5rem;
 }
@@ -192,29 +189,34 @@ body{
 .btn-left-right{
     background-color: rgba(196, 40, 53,1);
     border-radius: 50%;
-    width: 2.8rem;
-    height: 2.8rem;
+    width: 2.8vw;
+    height: 2.8vw;
     color: black;
     font-family: 'Fredoka One', cursive;
     margin-right: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
-    filter: drop-shadow(10px 10px 10px rgb(0,0,0));
-    padding: 2rem;
+    font-size: 1.5vw;
+    filter: drop-shadow(0px 0px 8px #fff);
+    padding: 1.5vw;
+    border: 0.2rem solid whitesmoke;
+}
+
+.btn-left-right:hover{
+    background-color: rgba(196, 40, 53,0.5);
 }
 
 .btn-name-pokemon{
-    font-size: 3rem; 
+    font-size: 2vw; 
     color: whitesmoke
 }
 
 .space-bar-btns{
     background-color: #545253;
     width: 100%;
-    height: 6rem;
-    position: fixed;
+    height: 4.4vw;
+    position: absolute;
     filter: drop-shadow(0px 5px 5px rgb(0,0,0));
     z-index: 100;
 }
@@ -226,14 +228,14 @@ body{
     rgba(0,0,0,1) 50%, 
     rgba(0,0,0,1) 55%, 
     rgba(255,255,255,1) 55%);
-    width: 12rem;
-    height: 12rem;
+    width: 8.8vw;
+    height: 8.8vw;
     border: none;
     border-radius: 50%;
+    margin-top: 2rem;
     cursor: pointer;
     position: relative;
     box-shadow:  0px 0px 8px 3px rgba(0,0,0,0.71);
-    margin-top: 2rem;
     transform: rotateZ(0deg);
     transition: 1.3s;
 }
@@ -241,13 +243,13 @@ body{
 .pokeball-btn::after{
     content: '';
     background: whitesmoke;
-    width: 5rem;
-    height: 5rem;
+    width: 3.7vw;
+    height: 3.7vw;
     border-radius: 50%;
-    border: solid 1rem black;
+    border: solid 0.8vw black;
     position: absolute;
-    right: 3.5rem;
-    bottom: 3.5rem;
+    right: 2.5vw;
+    bottom: 2.5vw;
 }
 
 .pokeball-btn:hover{
@@ -263,12 +265,11 @@ body{
 
 .evolutions-container{
     width: 100%;
-    height: 15rem;
+    height: 15vw;
     display: flex;
     align-items: center;
     list-style: none;
     filter: drop-shadow(15px 5px 20px rgb(0,0,0));
-    margin-bottom: 1rem;
 }
 
 .name-evolution-pokemon-container{
@@ -303,28 +304,30 @@ body{
 }
 
 .n-of-number-evolutions{
-    font-size: 1rem;
+    font-size: 0.8vw;
     color: whitesmoke;
 }
 
 .pokemon-evolution-id{
-    font-size: 1.5;
+    font-size: 1.2vw;
     color: rgba(196, 40, 53,1);
 }
 
 .name-pokemon-evolution{
-    font-size: 2rem; 
+    font-size: 1.5vw; 
     color: whitesmoke;  
 }
 
 .evolutions-pokemon-png{
-    width: 10rem;
+    width: 8vw;
+    object-fit: contain;
     cursor: pointer;
     filter: drop-shadow(3px 3px 3px rgb(0,0,0));
 }
 
 .items-left-pokemonDetail{
     width: 50%;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -332,6 +335,7 @@ body{
 
 .items-right-pokemonDetail{
     width: 50%;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -344,18 +348,20 @@ body{
     background: linear-gradient(135deg,
     rgba(255, 255, 255,1) 70%,
     rgba(0,0,0,0) 70%); 
-    margin-bottom: 2rem;
-    padding: 1rem ;
+    margin-bottom: 2vw;
+    padding: 0.75vw;
     border-radius: 0 2rem 2rem 0;
-    width: 30rem;
+    width: 22vw;
     border: none;
     text-transform: capitalize;
     color: rgba(196, 40, 53,1);
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 1.5vw;
     cursor: pointer;
     filter: drop-shadow(5px 5px 5px rgb(0,0,0));
     outline-style: none;
+    position: relative;
+    top: 0.45vw;
 }
 
 .text-bio-container{
@@ -364,7 +370,7 @@ body{
     rgb(255, 255, 255) 70%,
     rgba(0,0,0,0) 70%); 
     width: 100%;
-    height: 13rem;
+    height: 9.5vw;
     display: flex;
     align-items: center;
     filter: drop-shadow(5px 5px 5px rgb(0,0,0));
@@ -373,6 +379,7 @@ body{
 .text-bio{
     width: 70%;
     padding: 1rem;
+    font-size: 1.2vw;
     text-transform: uppercase;
     font-style: italic;
     font-weight: 700;
@@ -380,10 +387,9 @@ body{
 
 .descriptions-pokemon-container{
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
     width: 100%;
-    height: 41rem;
+    height: 41vh;
 }
 
 .base-points-container{
@@ -391,7 +397,6 @@ body{
     text-align: end;
     width: 100%;
     list-style: none;
-    margin-top: 2rem;
 }
 
 .left-points-container{
@@ -405,8 +410,9 @@ body{
 .point-stat-name{
     text-transform: uppercase;
     font-weight: 700;
-    padding-right: 1rem;
-    margin-top: 0.3rem;
+    padding-right: 0.8vw;
+    margin-top: 0.3vw;
+    font-size: 1.2vw;
 }
 
 .percentage-point-detail{
@@ -415,12 +421,13 @@ body{
     background: linear-gradient(110deg,
     rgba(196, 40, 53,1) 90%,
     rgba(0,0,0,0) 10%);
-    margin-top: 0.3rem;
+    margin-top: 0.3vw;
     filter: drop-shadow(5px 5px 5px rgb(0,0,0));
 }
 
 .stat-padding{
     padding-right: 12%;
+    font-size: 1.2vw;
 }
 
 .movements-container{
@@ -434,17 +441,19 @@ body{
     background: linear-gradient(225deg,
     rgba(255, 255, 255,1) 70%,
     rgba(0,0,0,0) 70%); 
-    margin-bottom: 2rem;
-    padding: 1rem ;
-    width: 30rem;
+    margin-bottom: 2vw;
+    padding: 0.75vw;
+    width: 22vw;
     border: none;
     text-transform: capitalize;
     color: rgba(196, 40, 53,1);
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 1.5vw;
     text-align: end;
     cursor: pointer;
     filter: drop-shadow(5px 5px 5px rgb(0,0,0));
+    position: relative;
+    top: 0.45vw;
 }
 
 .button-a{
@@ -457,19 +466,23 @@ body{
     filter: drop-shadow(1px 1px 1px rgb(0,0,0));
 }
 
+.button-a:hover{
+    background-color: rgba(0, 0, 0, 0.541);
+}
+
 .select-moves{
     background: rgb(0, 0, 0);
     background: linear-gradient(325deg,
     rgba(0, 0, 0,1) 70%,
     rgba(0,0,0,0) 70%); 
     border-radius: 2rem 0 0 2rem;
-    padding: 1rem ;
-    width: 30rem;
+    padding: 0.8vw;
+    width: 22vw;
     border: none;
     text-transform: capitalize;
     color: whitesmoke;
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 1.5vw;
     text-align: end;
     cursor: pointer;
     position: absolute;
@@ -485,21 +498,22 @@ body{
     rgb(255, 255, 255) 70%,
     rgba(0,0,0,0) 70%); 
     width: 100%;
-    height: 13rem;
+    height: 9.5vw;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     text-align: end;
-    margin-bottom: 2rem;
+    margin-bottom: 3vw;
     filter: drop-shadow(5px 5px 5px rgb(0,0,0));
 }
 
 .text-move{
     width: 70%;
-    padding: 1rem;
+    padding: 0.8vw;
     text-transform: uppercase;
     font-style: italic;
     font-weight: 700;
+    font-size: 1.2vw;
 }
 
 .power-container{
@@ -511,9 +525,10 @@ body{
 .name-power{
     width: 18%;
     text-align: start;
-    padding-left: 1rem;
+    padding-left: 0.8vw;
     text-transform: uppercase;
     font-weight: 700;
+    font-size: 1.2vw;
 }
 
 .percentage-power-container{
@@ -521,6 +536,7 @@ body{
     display: flex;
     justify-content: flex-end;
     filter: drop-shadow(3px 3px 3px rgb(0,0,0));
+    font-size: 1.2vw;
 }
 
 .percentage-power{
@@ -557,19 +573,19 @@ body{
 }
 
 .type-per-color{
-    width: 8rem;
+    width: 5.8vw;
     padding: 0.5rem;
     text-align: center;
-    border-radius: 2rem;
+    border-radius: 2vw;
     color: whitesmoke;
     text-transform: uppercase;
-    font-size: 1.2rem;
+    font-size: 0.87vw;
     font-weight: 700;
 }
 
 .type-color-abilities-container{
     width: 100%;
-    height: 5rem;
+    height: 4vw;
     display: flex;
     list-style: none;;
     justify-content: flex-end;
@@ -579,27 +595,27 @@ body{
 }
 
 .types-ability-normal-color{
-    width: 10rem;
+    width: 7.3vw;
     background-color: #4F4F4F;
     padding: 1rem 0.5rem;
     text-align: center;
-    border-radius: 2rem;
+    border-radius: 2vw;
     color: whitesmoke;
     text-transform: uppercase;
-    font-size: 1.2rem;
+    font-size: 0.9vw;
     font-weight: 700;
     filter: drop-shadow(3px 3px 3px rgb(0,0,0));
 }
 
 .types-ability-hidden-color{
-    width: 10rem;
+    width: 7.3vw;
     background-color: #a27606;
     padding: 1rem 0.5rem;
     text-align: center;
-    border-radius: 2rem;
+    border-radius: 2vw;
     color: whitesmoke;
     text-transform: uppercase;
-    font-size: 1.2rem;
+    font-size: 0.9vw;
     font-weight: 700;
     filter: drop-shadow(3px 3px 3px rgb(0,0,0));
 }
@@ -607,17 +623,33 @@ body{
 .types-abilities{
     text-transform: uppercase;
     font-weight: 700;
+    font-size: 1.2vw;
 }
 
-.cs{
+.habitat-content{
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+}
+
+.weight-height{
+    background-color: black;
+    width: 7vw;
+    margin: 1rem;
+    padding: 0.5rem;
+    position: relative;
+    left: 7.3vw;
+    border-radius: 2vw;
+    color: whitesmoke;
+    filter: drop-shadow(3px 3px 3px #000);
+    text-align: center;
+    font-size: 1.15vw;
 }
 
 .habitat-container{
-    width: 50rem;
-    height: 4rem;
+    width: 36.5vw;
+    height: 2.95vw;
     background: rgb(0, 0, 0);
     background: linear-gradient(225deg,
     rgba(0, 0, 0,1) 50%,
@@ -632,7 +664,8 @@ body{
 }
 
 .padding-habitat{
-    padding: 0 1rem;
+    padding: 0 0.8vw;
+    font-size: 1.2vw;
 }
 
 .habitat-color-span{
@@ -930,7 +963,7 @@ body{
     background-color: rgba(0, 0, 0,1); 
     border: none; 
     width: 8vw;
-    height: 4vw;
+    height: 3.5vw;
     border-radius: 2rem;
     cursor: pointer;
     font-size: 1.5vw;
@@ -1025,6 +1058,10 @@ body{
     text-transform: capitalize;
 }
 
+.option-move{
+    color: black;
+}
+
 /*****/
 
 @media (max-width: 1024px){
@@ -1063,13 +1100,29 @@ body{
 
 @media (max-width: 480px) {
 
+    .btn-left-container{
+        width: 38%;
+        background-color: black;
+        filter: none;
+    }
+
+    .btn-right-container{
+        width: 38%;
+        background-color: black;
+        filter: none;
+    }
+
     .cards-container{
         width: 100%;
     }
 
     .type-color{
-        padding-left: 30%;
         padding-right: 0;
+    }
+
+    .type-per-color{
+        width: 15vw;
+        font-size: 3vw;
     }
 
     .pokemon-png{
@@ -1081,7 +1134,7 @@ body{
     }
 
     .pokemon-details-container{
-        height: 125vh;
+        height: 200vh;
     }
 
     .items-right-pokemonDetail{
@@ -1114,5 +1167,252 @@ body{
 
     .btn-minigame-container button{
         width: 80%;
+    }
+
+    .header-container{    
+        padding-top: 10vw;
+        height: 13vh;
+    }
+
+    .nav-pokemonDetails-container{
+        height: 13vh;
+    }
+
+    .pokeball-btn{
+        width: 18vw;
+        height: 18vw;
+        margin-top: 0;
+    }
+
+    .pokeball-btn::after{
+        right: 4.8vw;
+        bottom: 4.8vw;
+        width: 8vw;
+        height: 8vw;
+        border: solid 1.8vw #000;
+    }
+
+    .btn-name-pokemon{
+        font-size: 4vw;
+    }
+
+    .btn-left-right{
+        display: none;
+    }
+
+    .n-of-number-pass-button{
+        font-size: 2.4vw;
+    }
+
+    .btn-info-id{
+        font-size: 3vw;
+    }
+
+    .btn-zl-pass-container{
+        display: none;
+    }
+
+    .btn-zr-pass-container{
+        display: none;
+    }
+
+    .pass-btn{
+        width: 100%;
+        height: 13vh;
+    }
+
+    .select-bio{
+        width: 45vw;
+        height: 10vw;
+        top: 7vh;
+        font-size: 3.5vw;
+        margin-bottom: 10vh;
+    }
+
+    .text-bio-container{
+        height: 35vw;
+    }
+
+    .text-bio{
+        font-size: 4vw;
+    }
+
+    .name-pokemon-container{
+        width: 98vw;
+        position: relative;
+        top: -2.5vh;
+    }
+
+    .name-pokemon{
+        font-size: 5vw;
+    }
+
+    .number-id{
+        font-size: 4vw;
+    }
+
+    .n-of-number{
+        font-size: 3vw;
+    }
+    
+    .container-pokemon-png{
+        height: 50vw;
+        display: flex;
+        justify-content: center;
+    }
+
+    .pokemon-png{
+        width: 80%;
+    }
+
+    .white-poke{
+        height: 40vw;
+        width: 40vw;
+        left: 34vw;
+        top: 8vw;
+    }
+
+    .space-bar-btns{
+        display: none;
+    }
+
+    .pokeball-btn-container{
+        width: 24%;
+        height: 13vh;
+        background-color: #545253;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 100;
+    }
+
+    .movements-container{
+        position: relative;
+        top: 7vh;
+    }
+
+    .movements{
+        width: 45vw;
+        height: 10vw;
+        font-size: 3.5vw;
+    }
+
+    .habitat-content{
+        position: relative;
+        top: 5vh;
+    }
+
+    .habitat-container{
+        width: 70vw;
+        height: 5vh;
+    }
+
+    .padding-habitat{
+        font-size: 2.8vw;
+    }
+
+    .weight-height{
+        width: 15vw;
+        font-size: 2.8vw;
+        margin-right: 0.1rem;
+    }
+
+    .stat-padding{
+        font-size: 3vw;
+    }
+
+    .point-stat-name{
+        font-size: 3vw;
+        margin-top: 1.5vw;
+    }
+
+    .base-points-container{
+        position: relative;
+        top: 10vh;
+    }
+
+    .left-points-container{
+        width: 50%;
+    }
+
+    .right-points-container{
+        width: 50%;
+    }
+
+    .evolutions-container{
+        height: 20vh;
+        position: relative;
+        top: 20vh;
+    }
+
+    .evolutions-pokemon-png{
+        width: 23vw;
+    }
+
+    .name-pokemon-evolution{
+        font-size: 4vw;
+    }
+
+    .pokemon-evolution-id{
+        font-size: 3vw;
+    }
+
+    .n-of-number-evolutions{
+        font-size: 2vw;
+    }
+
+    .types-ability-normal-color{
+        width: 20vw;
+        font-size: 2.5vw;
+    }
+
+    .types-ability-hidden-color{
+        width: 20vw;
+        font-size: 2.5vw;
+    }
+
+    .types-abilities{
+        font-size: 2.5vw;
+    }
+
+    .percentage-power-container{
+        font-size: 3vw;
+        position: relative;
+        top: 10vh;
+    }
+    
+    .name-power{
+        font-size: 3vw;
+        padding-left: 1rem;
+        position: relative;
+        top: 10vh;
+    }
+
+    .text-move-container{
+        height: 35vw;
+        position: relative;
+        top: 10vh;
+    }
+
+    .text-move{
+        font-size: 4vw;
+        padding-right: 1rem;
+    }
+
+    .select-moves{
+        bottom: -100vh;
+        width: 45vw;
+        height: 10vw;
+        font-size: 3.5vw;
+    }
+
+    .type-color-abilities-container{
+        position: relative;
+        top: 10vh;
+    }
+
+    .type-color-moves-container{
+        position: relative;
+        top: 10vh;
     }
 }

@@ -51,65 +51,61 @@ const PassButtons = () => {
     }
 
     return (
-        <div>
-            <header className='header-container'>
-                <div className='space-bar-btns'></div>
-                <nav className='nav-pokemonDetails-container'>
-                 
-                    <div className='btn-left-container'>   
-                        <button 
-                            onClick={navigatePrevPage}
-                            disabled={+id < 1 || +id > 905 && +id < 10001 || +id > 10249}
-                            className='pass-btn'
-                            style={ +id < 1 || +id > 905 && +id < 10001 || +id > 10249? 
-                                    {cursor: 'not-allowed'} 
-                                    :
-                                    null}
-                        >   
-                            <div className='btn-zl-pass-container'>
-                                <p className='btn-left-right'>ZL</p>
-                            </div>
-                            
-                            <div className='btn-pass-info-container'>
-                                <p className='n-of-number-pass-button'> 
-                                    N°
-                                    <span className='btn-info-id'>{id === '1'? '10249' : id === '10001'? '905' : pokemonPrev.id}</span>  
-                                </p>
-                                <p className='btn-name-pokemon'>{id === '1'? 'Enamorus-Therian' : id === '10001'? 'Enamorus-Incarnate' : pokemonPrev.name}</p>
-                            </div>                           
-                        </button>
-                    </div>
-                  
-                    <div className='pokeball-btn-container'>
-                        <button className='pokeball-btn' onClick={()=> navigate('/pokemon')}></button>
-                    </div>
-                    <div className='btn-right-container'>
-                        <button 
-                            onClick={navigateNextPage}
-                            className='pass-btn'
-                            disabled={+id > 905 && +id < 10001 || +id > 10249}
-                            style={
-                                +id > 905 && +id < 10001 || +id > 10249?
-                                {cursor: 'not-allowed'}
+        <header className='header-container'>
+            <div className='space-bar-btns'></div>
+            <nav className='nav-pokemonDetails-container'>
+                <div className='btn-left-container'>   
+                    <button 
+                        onClick={navigatePrevPage}
+                        disabled={+id < 1 || +id > 905 && +id < 10001 || +id > 10249}
+                        className='pass-btn'
+                        style={ +id < 1 || +id > 905 && +id < 10001 || +id > 10249? 
+                                {cursor: 'not-allowed'} 
                                 :
-                                null
-                            }
-                        >   
-                            <div className='btn-pass-info-container'>
-                                <p className='n-of-number-pass-button'> 
-                                    N° 
-                                    <span className='btn-info-id'>{id === '905'? '10001' : id === '10249'? '1' : pokemonNext.id}</span>
-                                </p>
-                                <p className='btn-name-pokemon'>{id === '905'? 'Deoxys-Attack' : id === '10249'? 'Bulbasaur' : pokemonNext.name}</p>
-                           </div>
-                           <div className='btn-zr-pass-container'>
-                                <p className='btn-left-right'>ZR</p>
-                           </div> 
-                        </button>
-                    </div>
-                </nav>
-            </header>
-        </div>
+                                null}
+                    >   
+                        <div className='btn-zl-pass-container'>
+                            <p className='btn-left-right'>ZL</p>
+                        </div>
+                        <div className='btn-pass-info-container'>
+                            <p className='n-of-number-pass-button'> 
+                                N°
+                                <span className='btn-info-id'>{id === '1'? '10249' : id === '10001'? '905' : pokemonPrev.id}</span>  
+                            </p>
+                            <p className='btn-name-pokemon'>{id === '1'? 'Enamorus-Therian' : id === '10001'? 'Enamorus-Incarnate' : pokemonPrev.name}</p>
+                        </div>                           
+                    </button>
+                </div>
+                
+                <div className='pokeball-btn-container'>
+                    <button className='pokeball-btn' onClick={()=> navigate('/pokemon')}></button>
+                </div>
+                <div className='btn-right-container'>
+                    <button 
+                        onClick={navigateNextPage}
+                        className='pass-btn'
+                        disabled={+id > 905 && +id < 10001 || +id > 10249}
+                        style={
+                            +id > 905 && +id < 10001 || +id > 10249?
+                            {cursor: 'not-allowed'}
+                            :
+                            null
+                        }
+                    >   
+                        <div className='btn-pass-info-container'>
+                            <p className='n-of-number-pass-button'> 
+                                N° 
+                                <span className='btn-info-id'>{id === '905'? '10001' : id === '10249'? '1' : pokemonNext.id}</span>
+                            </p>
+                            <p className='btn-name-pokemon'>{id === '905'? 'Deoxys-Attack' : id === '10249'? 'Bulbasaur' : pokemonNext.name}</p>
+                        </div>
+                        <div className='btn-zr-pass-container'>
+                            <p className='btn-left-right'>ZR</p>
+                        </div> 
+                    </button>
+                </div>
+            </nav>
+        </header>
     );
 };
 
